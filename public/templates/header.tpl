@@ -2,7 +2,7 @@
 <html lang="en" dark="true">
 
 <head>
-    <base href="http://localhost/practice/todo/" />
+    <base href="http://{$smarty.server.SERVER_NAME}{$smarty.server.PHP_SELF}" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
