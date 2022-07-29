@@ -1,6 +1,9 @@
 # Ignoring Smarty auto-generated php files
 public/templates_c/*.php
 
+# Ignoring Smarty
+public/libs/
+
 # Ignoring MAC OSX's .DS_Store file
 .DS_Store
 
