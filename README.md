@@ -45,22 +45,27 @@ Using the **[PDO](https://www.php.net/manual/en/class.pdo.php)** class, the hand
 
 ```php
 
-function get_connection(): PDO {
+public static function get_connection(): PDO {
+    $dbh = new Dbh();
+    $dsn = "mysql:host=" . $dbh->DB_HOST . ";dbname=" . $dbh->DB_NAME;
+    $options = array(
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false,
+    );
     try {
-            $db = new PDO('mysql:host=' . ConfigApp::_DB_HOST . ';dbname=' . ConfigApp::_DB_NAME, ConfigApp::_DB_USER, ConfigApp::_DB_PASS);
-
-            return $db;
-    } catch (PDOException $e) {
-            $db = null;
-            $error = new ToDoError('Fallo al conectar a la base de datos', 500, $e);
-            $error->show_error();
-            throw $e;
+        $db = new PDO($dsn, $dbh->DB_USER, $dbh->DB_PASS, $options);
+    } catch (\PDOException $e) {
+        $error = new ToDoError($e->getMessage(), (int) $e->getCode(), $e);
+        $error->show_error();
+        throw new \ToDoError($e->getMessage(), (int) $e->getCode());
     }
+    return $db;
 }
 
 ```
 
-See more in the **[dbh.php](public/dbh.php)** file.
+See more in the **[Dbh class](public/classes/Dbh.class.php)** file.
 
 ### Routing
 
