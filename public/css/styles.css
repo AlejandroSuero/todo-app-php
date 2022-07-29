@@ -1,0 +1,171 @@
+html {
+    --bg-red: #c64646 !important;
+    --bg-red-darker: #b43737 !important;
+    --bg-purple: #a551c9 !important;
+    --bg-purple-darker: #9046b0 !important;
+}
+
+::selection{
+    background: var(--bg-purple);
+    color: #000;
+}
+
+::-moz-selection{
+    background: var(--bg-purple);
+    color: #000;
+}
+
+.btn-close {
+    background: transparent url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>") center/1em auto no-repeat !important;
+}
+
+.blockquote {
+    padding-left: 1.25rem !important;
+}
+
+.error {
+    border: 1px solid var(--bg-red) !important;
+    border-radius: 0.375rem !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.error-text {
+    color: var(--bg-red) !important;
+    border: 2px solid var(--bg-red) !important;
+    border-radius: 0.375rem !important;
+    padding: 0.5rem !important;
+}
+
+.error:focus {
+    border: 1px solid var(--bg-red) !important;
+    border-radius: 0.375rem !important;
+    box-shadow: 0 0 0 0.25rem rgba(176, 60, 60, 0.25) !important;
+}
+
+.error:focus-visible {
+    outline: none !important;
+    border: 1px solid var(--bg-red) !important;
+    border-radius: 0.375rem !important;
+    box-shadow: 0 0 0 0.25rem rgba(176, 60, 60, 0.25) !important;
+}
+
+.dark {
+    background-color: #130c16;
+    color: #fff;
+    --bs-body-font-family: 'Roboto', sans-serif !important;
+}
+
+.icon {
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.button-border > .icon {
+    color: var(--bg-purple);
+    transition: all 0.3s ease-in-out;
+}
+
+.button-border:hover > .icon {
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.button-red-border > .icon {
+    color: var(--bg-red);
+    transition: all 0.3s ease-in-out;
+}
+
+.button-red-border:hover > .icon {
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.active {
+    background-color: #a551c9 !important;
+    border-color: #a551c9 !important;
+}
+
+a:hover{
+    color: #fff !important;
+}
+
+.button {
+    cursor: pointer;
+    color: #fff;
+    border-radius: 0.375rem !important;
+    background-color: var(--bg-purple) !important;
+    border: 3px solid var(--bg-purple) !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: var(--bg-purple-darker) !important;
+    border-color: var(--bg-purple-darker) !important;
+}
+
+.button-red {
+    cursor: pointer;
+    color: #fff;
+    border-radius: 0.375rem !important;
+    background-color: var(--bg-red) !important;
+    border: 3px solid var(--bg-red) !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.button-red:hover {
+    background-color: var(--bg-red-darker) !important;
+    border-color: var(--bg-red-darker) !important;
+}
+
+.button-red-border {
+    cursor: pointer;
+    color: #fff;
+    border-radius: 0.375rem !important;
+    background-color: none !important;
+    border: 3px solid var(--bg-red) !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.button-red-border:hover {
+    background-color: var(--bg-red-darker) !important;
+    border-color: var(--bg-red-darker) !important;
+}
+
+.button-border {
+    cursor: pointer;
+    color: #fff;
+    border-radius: 0.375rem !important;
+    background-color: none !important;
+    border: 3px solid var(--bg-purple) !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.button-border:hover {
+    background-color: var(--bg-purple-darker)!important;
+    border-color: var(--bg-purple-darker) !important;
+}
+
+.list-group-item {
+    border-radius: 0.375rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.form-control-purple {
+    border: 1px solid var(--bg-purple) !important;
+    border-radius: 0.375rem !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-control-purple:focus {
+    border: 1px solid var(--bg-purple) !important;
+    border-radius: 0.375rem !important;
+    box-shadow: 0 0 0 0.25rem rgb(165 81 201 / 25%) !important;
+}
+
+.form-control-purple:focus-visible {
+    outline: none !important;
+    border: 1px solid var(--bg-purple) !important;
+    border-radius: 0.375rem !important;
+    box-shadow: 0 0 0 0.25rem rgb(165 81 201 / 25%) !important;
+}
