@@ -16,7 +16,7 @@ class Dbh extends ConfigApp
         $this->DB_NAME = ConfigApp::_DB_NAME;
     }
 
-    public static function get_connection()
+    public static function get_connection(): PDO
     {
         $dbh = new Dbh();
         $dsn = "mysql:host=" . $dbh->DB_HOST . ";dbname=" . $dbh->DB_NAME;
