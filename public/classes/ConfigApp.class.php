@@ -20,19 +20,19 @@ class ConfigApp {
     /**
      * Nombre del host de la base de datos
      */
-    public const _DB_HOST = 'localhost';
+    protected const _DB_HOST = 'localhost';
     /**
      * Nombre del usuario de la base de datos
      */
-    public const _DB_USER = 'root';
+    protected const _DB_USER = 'root';
     /**
      * Contraseña de la base de datos
      */
-    public const _DB_PASS = 'abc123';
+    protected const _DB_PASS = 'abc123';
     /**
      * Nombre de la base de datos
      */
-    public const _DB_NAME = 'todo_app';
+    protected const _DB_NAME = 'todo_app';
 
     /**
      * Nombre de la acción a ejecutar
