@@ -43,7 +43,7 @@ See more at [**classes**](public/classes/).
 
 I used **[MySQL](https://www.mysql.com/)**.
 
-### Structure {#db-structure}
+### Structure
 
 | **Field**        | **Type**     | **Null**    | **Key**   | **Default**   | **Extra**      |
 |------------------|--------------|-------------|-----------|---------------|----------------|
