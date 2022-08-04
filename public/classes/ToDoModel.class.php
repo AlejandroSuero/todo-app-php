@@ -1,6 +1,17 @@
 <?php
 
-class Dbh extends ConfigApp
+/**
+ * Clase que gestiona la base de datos
+ * 
+ * @author Alejandro Suero Mejías ▓▒▒░░░青目░░░▒▒▓
+ * @package     classes
+ * 
+ * @property    string _DB_HOST Nombre del host de la base de datos
+ * @property    string _DB_USER Nombre de usuario de la base de datos
+ * @property    string _DB_PASS Contraseña de la base de datos
+ * @property    string _DB_NAME Nombre de la base de datos
+*/
+class ToDoModel extends ConfigApp
 {
 
     private $DB_HOST = ConfigApp::_DB_HOST;
@@ -18,7 +29,7 @@ class Dbh extends ConfigApp
 
     public static function get_connection(): PDO
     {
-        $dbh = new Dbh();
+        $dbh = new ToDoModel();
         $dsn = "mysql:host=" . $dbh->DB_HOST . ";dbname=" . $dbh->DB_NAME;
         $options = array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -46,7 +57,7 @@ class Dbh extends ConfigApp
      * @return array Array con todas las tareas de la base de datos
      * @throws ToDoError Si no se puede realizar la consulta
      */
-    public function get_tasks(): array
+    public function get_all_tasks(): array
     {
         try {
             $db = $this->get_connection();
@@ -54,13 +65,13 @@ class Dbh extends ConfigApp
             $query->execute();
             $tasks = $query->fetchAll(PDO::FETCH_ASSOC);
             $db = null;
-            return $tasks;
         } catch (PDOException $e) {
             $db = null;
             $error = new ToDoError('Fallo al consultar todas las tareas', 500, $e);
             $error->show_error();
             throw $e;
         }
+        return $tasks;
     }
 
     /**
@@ -139,7 +150,6 @@ class Dbh extends ConfigApp
             $query->bindParam(':id', $task_id);
             $query->execute();
             $db = null;
-            return true;
         } catch (PDOException $e) {
             $db = null;
             $error = new ToDoError('Fallo al eliminar una tarea', 500, $e);
@@ -147,6 +157,7 @@ class Dbh extends ConfigApp
             throw $e;
             return false;
         }
+        return true;
     }
 
     /**
@@ -169,7 +180,6 @@ class Dbh extends ConfigApp
             $query->bindParam(':id', $task_id);
             $query->execute();
             $db = null;
-            return true;
         } catch (PDOException $e) {
             $db = null;
             $error = new ToDoError('Fallo al marcar una tarea como realizada', 500, $e);
@@ -177,6 +187,7 @@ class Dbh extends ConfigApp
             throw $e;
             return false;
         }
+        return true;
     }
 
     public function update_new_task(string $task_title, string $task_description, int $task_id): bool
@@ -185,9 +196,11 @@ class Dbh extends ConfigApp
             if ($this->is_empty_string($task_title)) {
                 header('HTTP/1.1 400 Bad Request');
                 header('Location: tasks?error=empty_title');
+                $error = new ToDoError('Failed to update the task', 400);
+                $error->show_error();
             } else {
                 $db = $this->get_connection();
-                $query = $db->prepare('UPDATE task SET task_title = :title, task_description = :description WHERE task_id = :id ;');
+                $query = $db->prepare('UPDATE task SET task_title = :title, task_description = :description WHERE task_id = :id');
                 $query->bindParam(':title', $task_title);
                 $query->bindParam(':description', $task_description);
                 $query->bindParam(':id', $task_id);

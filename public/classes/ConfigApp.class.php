@@ -3,7 +3,7 @@
 /**
  * Clase que contiene los datos de configuración de la aplicación
  * 
- * @author      Alejandro Suero
+ * @author Alejandro Suero Mejías ▓▒▒░░░青目░░░▒▒▓
  * @package     classes
  * 
  * @property    string _DB_HOST Nombre del host de la base de datos
@@ -47,13 +47,13 @@ class ConfigApp {
      * Array con los nombres de las acciones y sus métodos
      */
     public static $ACTIONS = [
-        '' => 'tasks',
-        'home' => 'tasks',
-        'tasks' => 'tasks',
-        'add' => 'add_task',
-        'delete' => 'delete_task',
-        'done' => 'done_task',
-        'edit' => 'edit_task',
-        'update' => 'update_task'
+        '' => 'ToDoController#tasks',
+        'home' => 'ToDoController#tasks',
+        'tasks' => 'ToDoController#tasks',
+        'add' => 'ToDoController#add_task',
+        'delete' => 'ToDoController#delete_task',
+        'done' => 'ToDoController#done_task',
+        'edit' => 'ToDoController#edit_task',
+        'update' => 'ToDoController#update_task'
     ];
 }

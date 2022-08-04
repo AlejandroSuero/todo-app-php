@@ -1,10 +1,10 @@
 <?php
 // require Smarty library
-require_once 'libs/Smarty.class.php';
+require_once 'ToDoView.class.php';
 /**
  * Clase para gestionar errores
  * 
- * @author Alejandro Suero
+ * @author Alejandro Suero Mejías ▓▒▒░░░青目░░░▒▒▓
  * @extends Exception
  */
 class ToDoError extends Exception
@@ -114,10 +114,7 @@ class ToDoError extends Exception
      */
     public function show_error(): void
     {
-        $smarty = new Smarty();
-        $smarty->assign('page_title', 'ToDo App - Error ' . $this->get_error_code());
-        $smarty->assign('error_code', $this->get_error_code());
-        $smarty->assign('error_message', $this->get_error_message());
-        $smarty->display('error.tpl');
+        $todo_view = new ToDoView();
+        $todo_view->display_error($this->get_error_message(), $this->get_error_code());
     }
 }
