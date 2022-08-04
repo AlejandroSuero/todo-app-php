@@ -1,4 +1,4 @@
-# ToDo Application
+# <center><font color="lightblue">ToDo Application</font></center>
 
 <p align="center">
     <img alt="ToDo App Logo" src="public/images/icons/ToDo_App_icon_144x144.png" width="144" height="144"/>
@@ -12,23 +12,38 @@ Index:
 
 1. [Backend](#backend)
 
-    - [Structure](#db-structure)
+    - [Structure](#structure)
 
-    - [Handler](#db-handler)
+    - [Handler](#handler)
 
     - [Routing](#routing)
 
 2. [Frontend](#frontend)
 
-    - [Templates](#frontend-layout)
+    - [Templates](#templates)
 
-    - [Styles](#frontend-style)
+    - [Styles](#styles)
+
+The application classes for the MVC pattern are:
+
+```tree
+
+├─📂 classes
+    - 🐘 ToDoModel.class.php
+    - 🐘 ToDoView.class.php
+    - 🐘 ToDoController.class.php
+
+```
+
+There are also some classes for the error handling and the configuration:
+
+See more at [**classes**](public/classes/).
 
 ## Backend
 
 I used **[MySQL](https://www.mysql.com/)**.
 
-### Structure
+### Structure {#db-structure}
 
 | **Field**        | **Type**     | **Null**    | **Key**   | **Default**   | **Extra**      |
 |------------------|--------------|-------------|-----------|---------------|----------------|
