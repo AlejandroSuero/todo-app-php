@@ -10,7 +10,7 @@
             <div class="col-sm text-center center">
                 <h1 class="display-1 fw-bold">{$error_code}</h1>
                 <h2 class="display-6">{$error_message}</h2>
-                <a href="/practice/todo/" class="btn active">Volver</a>
+                <a href="/practice/todo-app-php/public/" class="btn active">Volver</a>
             </div>
         </div>
 {include file="./footer.tpl"}

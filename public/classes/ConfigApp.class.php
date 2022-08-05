@@ -2,7 +2,7 @@
 
 require '../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . dirname($_SERVER['SCRIPT_NAME']));
+$dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '/practice/todo-app-php/public/');
 $dotenv->load();
 
 /**
@@ -43,12 +43,13 @@ class ConfigApp
      * Nombre de la base de datos
      */
     protected $_DB_NAME = null;
+    
     function __construct()
     {
-        $this->DB_HOST = getenv('DB_HOST');
-        $this->DB_USER = getenv('DB_USER');
-        $this->DB_PASS = getenv('DB_PASS');
-        $this->DB_NAME = getenv('DB_NAME');
+        $this->_DB_HOST = $_ENV['DB_HOST'];
+        $this->_DB_USER = $_ENV['DB_USER'];
+        $this->_DB_PASS = $_ENV['DB_PASS'];
+        $this->_DB_NAME = $_ENV['DB_NAME'];
     }
 
     /**

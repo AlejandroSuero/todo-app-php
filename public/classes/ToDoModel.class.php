@@ -30,6 +30,7 @@ class ToDoModel extends ConfigApp
 
     public static function get_connection(): PDO
     {
+        $config = new ConfigApp();
         $dbh = new ToDoModel();
         $dsn = "mysql:host=" . $dbh->DB_HOST . ";dbname=" . $dbh->DB_NAME;
         $options = array(
@@ -38,11 +39,11 @@ class ToDoModel extends ConfigApp
             PDO::ATTR_EMULATE_PREPARES => false,
         );
         try {
-            $db = new PDO($dsn, $dbh->DB_USER, $dbh->DB_PASS, $options);
+            $db = new PDO($dsn, $config->_DB_USER, $config->_DB_PASS, $options);
         } catch (\PDOException $e) {
             $error = new ToDoError($e->getMessage(), (int) $e->getCode(), $e);
             $error->show_error();
-            throw new \ToDoError($e->getMessage(), (int) $e->getCode());
+            throw $error;
         }
         return $db;
     }
@@ -205,7 +206,14 @@ class ToDoModel extends ConfigApp
                 $query->bindParam(':title', $task_title);
                 $query->bindParam(':description', $task_description);
                 $query->bindParam(':id', $task_id);
-                $query->execute();
+                if ($query->execute()) {
+                    $db = null;
+                    echo 'true';
+                } else {
+                    $db = null;
+                    echo 'false';
+                }
+                sleep(3);
                 $db = null;
                 return true;
             }
