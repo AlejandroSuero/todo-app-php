@@ -14,17 +14,18 @@
 class ToDoModel extends ConfigApp
 {
 
-    private $DB_HOST = ConfigApp::_DB_HOST;
-    private $DB_USER = ConfigApp::_DB_USER;
-    private $DB_PASS = ConfigApp::_DB_PASS;
-    private $DB_NAME = ConfigApp::_DB_NAME;
+    private $DB_HOST = null;
+    private $DB_USER = null;
+    private $DB_PASS = null;
+    private $DB_NAME = null;
 
     public function __construct()
     {
-        $this->DB_HOST = ConfigApp::_DB_HOST;
-        $this->DB_USER = ConfigApp::_DB_USER;
-        $this->DB_PASS = ConfigApp::_DB_PASS;
-        $this->DB_NAME = ConfigApp::_DB_NAME;
+        $config = new ConfigApp();
+        $this->DB_HOST = $config->_DB_HOST;
+        $this->DB_USER = $config->_DB_USER;
+        $this->DB_PASS = $config->_DB_PASS;
+        $this->DB_NAME = $config->_DB_NAME;
     }
 
     public static function get_connection(): PDO

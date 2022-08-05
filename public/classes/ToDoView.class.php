@@ -78,6 +78,6 @@ class ToDoView
         $this->smarty->assign('page_title', 'ToDo App - Error ' . $code);
         $this->smarty->assign('error_code', $code);
         $this->smarty->assign('error_message', $message);
-        $this->smarty->display('template/error.tpl');
+        $this->smarty->display('error.tpl');
     }
 }

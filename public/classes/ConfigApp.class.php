@@ -1,5 +1,10 @@
 <?php
 
+require '../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . dirname($_SERVER['SCRIPT_NAME']));
+$dotenv->load();
+
 /**
  * Clase que contiene los datos de configuración de la aplicación
  * 
@@ -22,22 +27,29 @@ class ConfigApp
     /**
      * Nombre del host de la base de datos
      */
-    protected const _DB_HOST = 'localhost';
+    protected $_DB_HOST = null;
 
     /**
      * Nombre del usuario de la base de datos
      */
-    protected const _DB_USER = 'root';
+    protected $_DB_USER = null;
 
     /**
      * Contraseña de la base de datos
      */
-    protected const _DB_PASS = 'abc123';
+    protected $_DB_PASS = null;
 
     /**
      * Nombre de la base de datos
      */
-    protected const _DB_NAME = 'todo_app';
+    protected $_DB_NAME = null;
+    function __construct()
+    {
+        $this->DB_HOST = getenv('DB_HOST');
+        $this->DB_USER = getenv('DB_USER');
+        $this->DB_PASS = getenv('DB_PASS');
+        $this->DB_NAME = getenv('DB_NAME');
+    }
 
     /**
      * Nombre de la acción a ejecutar
