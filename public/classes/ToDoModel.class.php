@@ -10,7 +10,7 @@
  * @property    string _DB_USER Nombre de usuario de la base de datos
  * @property    string _DB_PASS Contraseña de la base de datos
  * @property    string _DB_NAME Nombre de la base de datos
-*/
+ */
 class ToDoModel extends ConfigApp
 {
 

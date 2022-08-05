@@ -5,12 +5,12 @@ html {
     --bg-purple-darker: #9046b0 !important;
 }
 
-::selection{
+::selection {
     background: var(--bg-purple);
     color: #000;
 }
 
-::-moz-selection{
+::-moz-selection {
     background: var(--bg-purple);
     color: #000;
 }
@@ -60,22 +60,22 @@ html {
     transition: all 0.3s ease-in-out;
 }
 
-.button-border > .icon {
+.button-border>.icon {
     color: var(--bg-purple);
     transition: all 0.3s ease-in-out;
 }
 
-.button-border:hover > .icon {
+.button-border:hover>.icon {
     color: #fff;
     transition: all 0.3s ease-in-out;
 }
 
-.button-red-border > .icon {
+.button-red-border>.icon {
     color: var(--bg-red);
     transition: all 0.3s ease-in-out;
 }
 
-.button-red-border:hover > .icon {
+.button-red-border:hover>.icon {
     color: #fff;
     transition: all 0.3s ease-in-out;
 }
@@ -85,7 +85,7 @@ html {
     border-color: #a551c9 !important;
 }
 
-a:hover{
+a:hover {
     color: #fff !important;
 }
 
@@ -141,7 +141,7 @@ a:hover{
 }
 
 .button-border:hover {
-    background-color: var(--bg-purple-darker)!important;
+    background-color: var(--bg-purple-darker) !important;
     border-color: var(--bg-purple-darker) !important;
 }
 

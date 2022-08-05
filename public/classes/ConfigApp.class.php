@@ -16,19 +16,24 @@
  * 
  * @property    array $ACTIONS Array con los nombres de las acciones y sus métodos
  */
-class ConfigApp {
+class ConfigApp
+{
+
     /**
      * Nombre del host de la base de datos
      */
     protected const _DB_HOST = 'localhost';
+
     /**
      * Nombre del usuario de la base de datos
      */
     protected const _DB_USER = 'root';
+
     /**
      * Contraseña de la base de datos
      */
     protected const _DB_PASS = 'abc123';
+
     /**
      * Nombre de la base de datos
      */
@@ -38,6 +43,7 @@ class ConfigApp {
      * Nombre de la acción a ejecutar
      */
     public static $ACTION = "action";
+
     /**
      * Parámetros de la acción a ejecutar
      */
@@ -45,9 +51,11 @@ class ConfigApp {
 
     /**
      * Array con los nombres de las acciones y sus métodos
+     * 
+     * 'action' => 'controller#method'
      */
     public static $ACTIONS = [
-        '' => 'ToDoController#tasks',
+        '' => 'ToDoController#tasks', // Default action
         'home' => 'ToDoController#tasks',
         'tasks' => 'ToDoController#tasks',
         'add' => 'ToDoController#add_task',

@@ -40,6 +40,7 @@ class ToDoView
         $this->smarty->assign('tasks', $tasks);
         $this->smarty->display('templates/tasks.tpl');
     }
+
     /**
      * Muestra la página de tareas
      * 

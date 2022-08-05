@@ -21,6 +21,10 @@ class ToDoError extends Exception
         parent::__construct($message, $code, $previous);
     }
 
+    // -------------------------------------------------------------------------
+    //                          Default code to display
+    // -------------------------------------------------------------------------
+
     /**
      * Añade mensaje 400 predeterminado a la excepción
      */
@@ -84,6 +88,7 @@ class ToDoError extends Exception
         $this->message = 'Bad Gateway';
         $this->code = 502;
     }
+
     /**
      * Añade mensaje 503 predeterminado a la excepción
      */
@@ -92,6 +97,10 @@ class ToDoError extends Exception
         $this->message = 'Service Unavailable';
         $this->code = 503;
     }
+
+    // -------------------------------------------------------------------------
+    //                          Display error
+    // -------------------------------------------------------------------------
 
     /**
      * Recoge el mensaje de error

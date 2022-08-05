@@ -11,7 +11,8 @@ require_once './classes/ToDoController.class.php';
  * @param string $url La url a la que se desea acceder
  * @return array Array con los datos de la acción a ejecutar y los parámetros
  */
-function url_parse(string $url): array {
+function url_parse(string $url): array
+{
     $url_data = explode('/', $url);
     $data_array[ConfigApp::$ACTION] = $url_data[0];
     $data_array[ConfigApp::$PARAMS] = isset($url_data[1]) ? array_slice($url_data, 1) : null;
@@ -23,18 +24,18 @@ $url_data = url_parse($_GET[ConfigApp::$ACTION]);
 $action_name = $url_data[ConfigApp::$ACTION];
 
 // Si hay una acción a ejecutar y es válida, se ejecuta
-if(array_key_exists($action_name, ConfigApp::$ACTIONS)) {
+if (array_key_exists($action_name, ConfigApp::$ACTIONS)) {
     $params = $url_data[ConfigApp::$PARAMS];
     $handler = explode('#', ConfigApp::$ACTIONS[$action_name]);
     $controller = new $handler[0];
     $method_name = $handler[1];
     // Si hay parámetros, se los pasa al método
-    if(isset($params) && $params !== null){
+    if (isset($params) && $params !== null) {
         echo $controller->$method_name($params);
-    }else{ // Sino se ejecuta el método sin parámetros
+    } else { // Sino se ejecuta el método sin parámetros
         echo $controller->$method_name();
     }
-}else{// Sino se muestra la página de error
+} else { // Sino se muestra la página de error
     // Mostrar Error 404 (Página no encontrada)
     $error = new ToDoError('La página a la que quiere acceder no existe', 404);
     $error->show_error();

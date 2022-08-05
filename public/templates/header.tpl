@@ -12,8 +12,8 @@
   Delete a specific task.
   Mark a specific task as done or undone." />
 
-  
-<title title="{$page_title}">{$page_title}</title>
+
+    <title title="{$page_title}">{$page_title}</title>
 
 
     <meta property="og:title" value="{$page_title}" />
