@@ -9,3 +9,6 @@ public/libs/
 
 # Ignoring MD linter rules
 .markdownlint.json
+
+# Ignorig .env
+.env
