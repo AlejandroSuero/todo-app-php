@@ -1,14 +1,11 @@
-# Ignoring Smarty auto-generated php files
-public/templates_c/*.php
-
-# Ignoring Smarty
+# Ignored directories
+public/templates_c/
 public/libs/
+vendor/
 
-# Ignoring MAC OSX's .DS_Store file
+# Ignored files
+public/templates_c/*.php
 .DS_Store
-
-# Ignoring MD linter rules
 .markdownlint.json
-
-# Ignorig .env
 .env
+
