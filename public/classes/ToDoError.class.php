@@ -113,7 +113,7 @@ class ToDoError extends Exception
     /**
      * Recoge el código de error
      */
-    public function get_error_code(): string
+    public function get_error_code(): int
     {
         return $this->code;
     }

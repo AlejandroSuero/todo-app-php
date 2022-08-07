@@ -111,9 +111,12 @@ class ToDoController
      */
     function edit_task(array $params): void
     {
-        if ($this->todo_model->get_task_by_id((int) $params[0]) === []) {
+        if($params[0] === ''){
+            $error = new ToDoError('La tarea que busca editar necesita un id', 400);
+            $this->todo_view->display_error($error->get_error_message(), $error->get_error_code());
+        }else if ($this->todo_model->get_task_by_id((int) $params[0]) === []) {
             $error = new ToDoError('La tarea que busca editar id: ' . $params[0] . ', no existe.', 404);
-            $error->show_error();
+            $this->todo_view->display_error($error->get_error_message(), $error->get_error_code());
         } else {
             $task = $this->todo_model->get_task_by_id((int) $params[0]);
             $this->todo_view->display_edit_task($task);
