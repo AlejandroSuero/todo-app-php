@@ -18,10 +18,19 @@
             <div class="col-sm">
                 <h2 class="display-4 fw-bold">Tasks</h2>
                 <ul class="list-group gap-2">
-                    {foreach from=$tasks item=task}
-                        {include file="./delete_modal.tpl"}
-                        {include file="./task_list.tpl"}
-                    {/foreach}
+                    {if count($tasks) == 0}
+                        <li style="background-color: #b0466180 !important;" class="text-bg-dark list-group-item d-flex align-items-center" id="no_tasks">
+                            <blockquote class="pt-3 flex-grow-1 blockquote fs-2">
+                                <p class="mb-3">There are no tasks</p>
+                                <footer class="blockquote-footer">Start creating one</footer>
+                            </blockquote>
+                        </li>
+                    {else}
+                        {foreach from=$tasks item=task}
+                            {include file="./delete_modal.tpl"}
+                            {include file="./task_list.tpl"}
+                        {/foreach}
+                    {/if}
                 </ul>
             </div>
             <div class="col-sm">
