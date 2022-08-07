@@ -206,14 +206,7 @@ class ToDoModel extends ConfigApp
                 $query->bindParam(':title', $task_title);
                 $query->bindParam(':description', $task_description);
                 $query->bindParam(':id', $task_id);
-                if ($query->execute()) {
-                    $db = null;
-                    echo 'true';
-                } else {
-                    $db = null;
-                    echo 'false';
-                }
-                sleep(3);
+                $query->execute();
                 $db = null;
                 return true;
             }
