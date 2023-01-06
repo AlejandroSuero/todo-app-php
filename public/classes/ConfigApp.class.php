@@ -2,7 +2,7 @@
 
 require '../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '/practice/todo-app-php/public/');
+$dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '/todo-app-php/public/');
 $dotenv->load();
 
 /**
